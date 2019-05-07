@@ -15,7 +15,8 @@ let templateFiles = [
   '/.gitignore',
   '/macup.sh',
   '/README.md',
-  '/package.json'
+  '/package.json',
+  '/dist/my.config'
 ]
 
 templateFiles.forEach(function (file) {
