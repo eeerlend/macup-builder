@@ -10,13 +10,16 @@ let templateFiles = [
   '/.eslintrc.json',
   '/.gitignore',
   '/macup.sh',
-  '/README.md'
+  '/README.md',
+  '/package.json'
 ]
 
 templateFiles.forEach(function (file) {
-  if (file === '/.gitignore') {
-    fs.copyFileSync(templateDir + '/.gitignore-dist', appDir + file)
-  } else {
-    fs.copyFileSync(templateDir + file, appDir + file)
+  if (!fs.existsSync(appDir + file)) {
+    if (file === '/.gitignore') {
+      fs.copyFileSync(templateDir + '/.gitignore-dist', appDir + file)
+    } else {
+      fs.copyFileSync(templateDir + file, appDir + file)
+    }
   }
 })
