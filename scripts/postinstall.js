@@ -14,7 +14,9 @@ let templateFiles = [
 ]
 
 templateFiles.forEach(function (file) {
-  fs.copyFile(templateDir + file, appDir + file, (err) => {
-    if (err) throw err
-  })
+  if (file === '.gitignore') {
+    fs.copyFileSync(templateDir + '/.gitignore-dist', appDir + file)
+  } else {
+    fs.copyFileSync(templateDir + file, appDir + file)
+  }
 })
