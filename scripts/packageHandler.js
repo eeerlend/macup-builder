@@ -2,6 +2,8 @@ let fs = require('fs-extra')
 let path = require('path')
 
 module.exports.copyModule = function (packageName) {
+  if (packageName === 'macup-builder') return
+
   let moduleDir = path.resolve(path.dirname(require.main.filename), '../')
   let appDir = path.resolve('..', '..')
 
