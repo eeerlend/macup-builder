@@ -10,9 +10,9 @@ module.exports.copyModule = function (packageName) {
   console.info('==================================================================')
 
   // Creates /.editorconfig
-  fs.copy(moduleDir + '/dist', appDir + '/dist/packages/' + packageName, function (err) {
-    if (err) throw err
-  })
+  fs.mkdirsSync(appDir + '/dist/packages/' + packageName)
+
+  fs.copySync(moduleDir + '/dist', appDir + '/dist/packages/' + packageName)
 
   // Fetch the configuration file from the package
   let moduleConfigFile = (path.resolve(moduleDir, 'dist') + '/package.config')
