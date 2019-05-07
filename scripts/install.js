@@ -6,6 +6,8 @@ console.info('Setting up macup!')
 
 let appDir = path.resolve('../../')
 
+console.info(' appDir: ' + appDir)
+
 let templateDir = path.resolve(__dirname, '../', 'template')
 let templateFiles = [
   '/.editorconfig',
