@@ -4,7 +4,7 @@ const path = require('path')
 
 console.info('Setting up macup!')
 
-let appDir = path.resolve('../../')
+let appDir = path.resolve('.')
 
 console.info(' appDir: ' + appDir)
 
