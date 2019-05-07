@@ -2,6 +2,8 @@
 const fs = require('fs')
 const path = require('path')
 
+console.info('Setting up macup!')
+
 let appDir = path.resolve('../../')
 
 let templateDir = path.resolve(__dirname, '../', 'template')
