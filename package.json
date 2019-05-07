@@ -1,0 +1,29 @@
+{
+  "name": "macup-builder",
+  "version": "0.0.1",
+  "description": "macup module, builds macup projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node scripts/install.js"
+  },
+  "bin": {
+    "setup": "./scripts/install.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eeerlend/macup-builder.git"
+  },
+  "keywords": [
+    "macup"
+  ],
+  "author": "Erlend Mongstad",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^7.0.1"
+  },
+  "bugs": {
+    "url": "https://github.com/eeerlend/macup-builder/issues"
+  },
+  "homepage": "https://github.com/eeerlend/macup-builder#readme"
+}
