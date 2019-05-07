@@ -4,8 +4,7 @@
   "description": "My custom distribution of macup",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "rm -rf node_modules/macup*",
+    "test": "echo \"Error: no test specified\" && exit 0",
     "build": "bash macup.sh"
   },
   "author": "My Name",
