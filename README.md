@@ -44,10 +44,8 @@ Voila!
 Feel free to create and publish your own modules. To make it work with macup, the only thing needed is a `postinstall` hook in package.json, that does the following:
 
 ```json
-...
 "scripts": {
   "postinstall": "require('macup-builder/packageHandler').copyModule('YOUR_MODULE_NAME')"
-  ...
 }
 ```
 
