@@ -49,11 +49,9 @@ Feel free to create and publish your own modules. To make it work with macup, th
 }
 ```
 
-... and, the bash file being executed during installation:
+... and, the bash file being executed during installation needs to be `./dist/run.sh`. 
 
-```
-./dist/run.sh
-```
+If your module have configurations - declare them in `./dist/package.config`, and implement them in your projects `./dist/my.config`
 
 ## Official modules
 You can extend macup, either with official modules, or with your own.
