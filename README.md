@@ -1,22 +1,60 @@
 # macup-builder
 
-This module sets up your own macup instance.
+macup is a node.js based framework for doing a single command bash-based installation on top of a macos installation.
 
-## Installation
-1. Run the following command in a new folder
+The core principles are:
+
+- With help of a single **configuration file**, prepare your macos installation
+- With **one terminal command** (`bash macup.sh`), be able to install everything from scratch - ie. command line tools, git, even mac app store apps, user preferences, dotfiles etc.
+- The setup should be **idempotent**, so it can be run multiple times
+- Add whatever modules you would like to your own custom package. Either official ones, or your own.
+
+## Preparations
+1. First you need to prepare your package (Configuration is node.js based, but the package itself don't need node at all)
 
 ```bash
 npx eeerlend/macup-builder setup
 ```
 
-This will create some basic files for you.
+This will create a starting point for you, including a blank `/dist/my.config` file.
 
-2. Now, run `npm install` to get all dependencies, and to run post installation scripts
+2. Now, run `npm install` to get dependencies (see list below for available official modules. Only `macup-core` is installed by default). Installation copies the `./dist` folder to your own project folder `./dist/packages/the-macup-module`.
 
-3. Configure `./dist/my.config` to your needs, and build the package with the following command:
+3. Configure `./dist/my.config` to your needs (take a look at the different modules for configuration options).
+
+4. Test your package form your project root;
 
 ```bash
-npm run build`
+bash macup.sh
+```
+
+5. Push your package to github (either public or private), and create a "personal access token" to be used when installing your macup package.
+
+## Installation on mac client
+
+1. On your newly installed mac, run the following command in your terminal (replace YOUR_AUTHORIZATION_TOKEN and YOUR_REPO with yout own data):
+
+```bash
+curl -s -H "Authorization: token {YOUR_AUTHORIZATION_TOKEN}" -L https://api.github.com/repos/{YOUR_REPO}/tarball > macup-master.tar && ([ ! -d macup-master ] && mkdir macup-master); tar xfz macup-master.tar -C ./macup-master --strip-components=1 && rm macup-master.tar && cd macup-master && bash macup.sh
+```
+
+Voila!
+
+## Creating your own modules
+Feel free to create and publish your own modules. To make it work with macup, the only thing needed is a `postinstall` hook in package.json, that does the following:
+
+```json
+...
+"scripts": {
+  "postinstall": "require('macup-builder/packageHandler').copyModule('YOUR_MODULE_NAME')"
+  ...
+}
+```
+
+... and, the bash file being executed during installation:
+
+```
+./dist/run.sh
 ```
 
 ## Official modules
