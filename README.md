@@ -63,6 +63,8 @@ You can extend macup, either with official modules, or with your own.
 - [eeerlend/macup-homebrew](https://github.com/eeerlend/macup-homebrew)
 - [eeerlend/macup-homebrew-casks](https://github.com/eeerlend/macup-homebrew-casks)
 - [eeerlend/macup-mas](https://github.com/eeerlend/macup-mas)
+- [eeerlend/macup-nvm](https://github.com/eeerlend/macup-nvm)
+- [eeerlend/macup-scutil](https://github.com/eeerlend/macup-scutil)
 - [eeerlend/macup-slimzsh](https://github.com/eeerlend/macup-slimzsh)
 - [eeerlend/macup-terminal-colors](https://github.com/eeerlend/macup-terminal-colors)
 - [eeerlend/macup-vscode-extensions](https://github.com/eeerlend/macup-vscode-extensions)
