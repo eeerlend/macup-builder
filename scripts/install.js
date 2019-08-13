@@ -21,6 +21,11 @@ let templateFiles = [
 
 templateFiles.forEach(function (file) {
   if (!fs.existsSync(appDir + file)) {
+
+    // Create directory if it doesn't exist already
+    let pathName = path.parse(appDir + file).dir
+    fs.mkdirsSync(pathName)
+
     if (file === '/.gitignore') {
       fs.copyFileSync(templateDir + '/.gitignore-dist', appDir + file)
     } else {
