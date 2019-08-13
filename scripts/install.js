@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const fs = require('fs')
+const fs = require('fs-extra')
 const path = require('path')
 
 console.info('Setting up macup!')
